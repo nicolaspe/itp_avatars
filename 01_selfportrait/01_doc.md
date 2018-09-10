@@ -7,7 +7,7 @@ Not able to download your character.
 
 [Bitmoji](https://www.bitmoji.com/) made by [Nouf Aljowaysir](http://noufaljowaysir.com)
 
-<div class="gallery" display="flexbox">
+<div class="gallery" display="flexbox" flex-wrap="no-wrap">
   <img src="bitmoji_00.jpeg" width=200px>
   <img src="bitmoji_01.jpeg" width=200px>
   <img src="bitmoji_02.jpeg" width=200px>
