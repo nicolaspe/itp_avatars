@@ -1,0 +1,553 @@
+{
+    "formatVersion": 2,
+    "nodes": {
+        "Delete_Polygons": {
+            "isAlwaysVisible": false,
+            "nodeId": 27,
+            "nodeType": "DeletePolygons",
+            "params": {
+                "geom": {
+                    "connectedNodeId": 25,
+                    "dataType": "Geometry"
+                },
+                "polygons": {
+                    "connectedNodeId": 26,
+                    "dataType": "PolygonSelection"
+                }
+            },
+            "x": 522.9455574715996,
+            "y": 84.39606726036695
+        },
+        "Load_3D_Scan": {
+            "isAlwaysVisible": false,
+            "nodeId": 0,
+            "nodeType": "LoadGeom",
+            "params": {
+                "fileNames": {
+                    "dataType": "StringList",
+                    "value": [  ]
+                },
+                "texture": {
+                    "connectedNodeId": 7,
+                    "dataType": "Image"
+                },
+                "transform": {
+                    "dataType": "Transform",
+                    "value": {
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotationQuat": {
+                            "scalar": 1,
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "scale": 1,
+                        "translation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }
+                },
+                "visualParam": {
+                    "dataType": "VisualParam",
+                    "value": {
+                        "colorBack": {
+                            "b": 85,
+                            "g": 85,
+                            "r": 85
+                        },
+                        "colorFront": {
+                            "b": 207,
+                            "g": 255,
+                            "r": 61
+                        },
+                        "colorWire": {
+                            "b": 34,
+                            "g": 26,
+                            "r": 17
+                        },
+                        "isLightingEnabled": false,
+                        "isSurfaceEnabled": true,
+                        "isWireframeEnabled": false,
+                        "surfaceFillType": 1
+                    }
+                }
+            },
+            "x": -44.68270041591745,
+            "y": 81.14474021483667
+        },
+        "Load_3D_Scan_Texture": {
+            "isAlwaysVisible": true,
+            "nodeId": 7,
+            "nodeType": "LoadImage",
+            "params": {
+                "fileNames": {
+                    "dataType": "StringList",
+                    "value": [  ]
+                }
+            },
+            "x": -46.68133673804937,
+            "y": 18.00698387559899
+        },
+        "Load_BaseMesh": {
+            "isAlwaysVisible": false,
+            "nodeId": 9,
+            "nodeType": "LoadGeom",
+            "params": {
+                "fileNames": {
+                    "dataType": "StringList",
+                    "value": [  ]
+                },
+                "texture": {
+                    "dataType": "Image"
+                },
+                "transform": {
+                    "dataType": "Transform",
+                    "value": {
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        },
+                        "rotationQuat": {
+                            "scalar": 0.9999619126319885,
+                            "x": 0,
+                            "y": -0.008726537227630615,
+                            "z": 1.862645149230957e-09
+                        },
+                        "scale": 1,
+                        "translation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }
+                },
+                "visualParam": {
+                    "dataType": "VisualParam",
+                    "value": {
+                        "colorBack": {
+                            "b": 85,
+                            "g": 85,
+                            "r": 85
+                        },
+                        "colorFront": {
+                            "b": 255,
+                            "g": 129,
+                            "r": 61
+                        },
+                        "colorWire": {
+                            "b": 34,
+                            "g": 26,
+                            "r": 17
+                        },
+                        "isLightingEnabled": true,
+                        "isSurfaceEnabled": true,
+                        "isWireframeEnabled": true,
+                        "surfaceFillType": 1
+                    }
+                }
+            },
+            "x": 507.4362521561104,
+            "y": -141.60393273963302
+        },
+        "Repair_Geometry": {
+            "isAlwaysVisible": false,
+            "nodeId": 25,
+            "nodeType": "RepairGeom",
+            "params": {
+                "geom": {
+                    "connectedNodeId": 9,
+                    "dataType": "Geometry"
+                }
+            },
+            "x": 504.9455574715996,
+            "y": -73.60256906176485
+        },
+        "Rigid_Alignment": {
+            "isAlwaysVisible": false,
+            "nodeId": 10,
+            "nodeType": "RigidAlignment",
+            "params": {
+                "geomFixed": {
+                    "connectedNodeId": 0,
+                    "dataType": "Geometry"
+                },
+                "geomFloating": {
+                    "connectedNodeId": 27,
+                    "dataType": "Geometry"
+                },
+                "matchScale": {
+                    "dataType": "Boolean",
+                    "value": true
+                },
+                "points": {
+                    "connectedNodeId": 11,
+                    "dataType": "PointCorrespondences"
+                }
+            },
+            "x": 75.31729958408255,
+            "y": 319.2616365333436
+        },
+        "Save_Geometry": {
+            "isAlwaysVisible": true,
+            "nodeId": 13,
+            "nodeType": "SaveGeom",
+            "params": {
+                "fileName": {
+                    "dataType": "String",
+                    "value": ""
+                },
+                "geom": {
+                    "connectedNodeId": 8,
+                    "dataType": "Geometry"
+                },
+                "includeTransform": {
+                    "dataType": "Boolean",
+                    "value": true
+                },
+                "saveNormals": {
+                    "dataType": "Boolean",
+                    "value": true
+                }
+            },
+            "x": 96.10099949322853,
+            "y": 864.261636533344
+        },
+        "Save_Texture": {
+            "isAlwaysVisible": true,
+            "nodeId": 14,
+            "nodeType": "SaveImage",
+            "params": {
+                "fileName": {
+                    "dataType": "String",
+                    "value": ""
+                },
+                "image": {
+                    "connectedNodeId": 5,
+                    "dataType": "Image"
+                },
+                "quality": {
+                    "dataType": "Integer",
+                    "value": 100
+                }
+            },
+            "x": -26.682700415917452,
+            "y": 933.2616365333439
+        },
+        "Select_Alginment_Points_Morph": {
+            "isAlwaysVisible": true,
+            "nodeId": 24,
+            "nodeType": "SelectPoints",
+            "params": {
+                "fileNameLeft": {
+                    "dataType": "String",
+                    "value": ""
+                },
+                "fileNameRight": {
+                    "dataType": "String",
+                    "value": ""
+                },
+                "geomLeft": {
+                    "connectedNodeId": 10,
+                    "dataType": "Geometry"
+                },
+                "geomRight": {
+                    "connectedNodeId": 0,
+                    "dataType": "Geometry"
+                },
+                "pointsLeft": {
+                    "dataType": "PointsOnTriangle",
+                    "value": [  ]
+                },
+                "pointsRight": {
+                    "dataType": "PointsOnTriangle",
+                    "value": [  ]
+                },
+                "sourceLeft": {
+                    "dataType": "Integer",
+                    "value": 0
+                },
+                "sourceRight": {
+                    "dataType": "Integer",
+                    "value": 0
+                },
+                "syncViews": {
+                    "dataType": "Boolean",
+                    "value": false
+                }
+            },
+            "x": 166.31729958408255,
+            "y": 463.37686287079225
+        },
+        "Select_Alginment_Points_Rigid": {
+            "isAlwaysVisible": true,
+            "nodeId": 11,
+            "nodeType": "SelectPoints",
+            "params": {
+                "fileNameLeft": {
+                    "dataType": "String",
+                    "value": ""
+                },
+                "fileNameRight": {
+                    "dataType": "String",
+                    "value": ""
+                },
+                "geomLeft": {
+                    "connectedNodeId": 27,
+                    "dataType": "Geometry"
+                },
+                "geomRight": {
+                    "connectedNodeId": 0,
+                    "dataType": "Geometry"
+                },
+                "pointsLeft": {
+                    "dataType": "PointsOnTriangle",
+                    "value": [  ]
+                },
+                "pointsRight": {
+                    "dataType": "PointsOnTriangle",
+                    "value": [  ]
+                },
+                "sourceLeft": {
+                    "dataType": "Integer",
+                    "value": 0
+                },
+                "sourceRight": {
+                    "dataType": "Integer",
+                    "value": 0
+                },
+                "syncViews": {
+                    "dataType": "Boolean",
+                    "value": false
+                }
+            },
+            "x": 102.31729958408255,
+            "y": 178.26163653334362
+        },
+        "Select_Free_Polygons": {
+            "isAlwaysVisible": true,
+            "nodeId": 21,
+            "nodeType": "SelectPolygons",
+            "params": {
+                "displayMode": {
+                    "dataType": "Integer",
+                    "value": 1
+                },
+                "fileName": {
+                    "dataType": "String",
+                    "value": "C:/Program Files/R3DS/Wrap 3.3/FreePolygons_StandardBaseMesh"
+                },
+                "geom": {
+                    "connectedNodeId": 27,
+                    "dataType": "Geometry"
+                },
+                "invisiblePolygonIndices": {
+                    "dataType": "PolygonSelection",
+                    "value": [  ]
+                },
+                "selection": {
+                    "dataType": "PolygonSelection",
+                    "value": [  ]
+                },
+                "showPolygroups": {
+                    "dataType": "Boolean",
+                    "value": true
+                },
+                "source": {
+                    "dataType": "Integer",
+                    "value": 0
+                }
+            },
+            "x": 584.092368005442,
+            "y": 430.97860041080116
+        },
+        "Select_Small_Components": {
+            "isAlwaysVisible": true,
+            "nodeId": 26,
+            "nodeType": "SelectSmallComponents",
+            "params": {
+                "geom": {
+                    "connectedNodeId": 25,
+                    "dataType": "Geometry"
+                },
+                "threshold": {
+                    "dataType": "Float",
+                    "value": 1
+                }
+            },
+            "x": 572.9455574715996,
+            "y": 9.396067260366948
+        },
+        "Set_Texture": {
+            "isAlwaysVisible": false,
+            "nodeId": 8,
+            "nodeType": "SetTexture",
+            "params": {
+                "geom": {
+                    "connectedNodeId": 2,
+                    "dataType": "Geometry"
+                },
+                "image": {
+                    "connectedNodeId": 5,
+                    "dataType": "Image"
+                }
+            },
+            "x": 96.31729958408255,
+            "y": 777.2616365333439
+        },
+        "Transfer_Texture": {
+            "isAlwaysVisible": true,
+            "nodeId": 5,
+            "nodeType": "TransferTexture",
+            "params": {
+                "dist": {
+                    "dataType": "Float",
+                    "value": 100
+                },
+                "geomDst": {
+                    "connectedNodeId": 2,
+                    "dataType": "Geometry"
+                },
+                "geomSrc": {
+                    "connectedNodeId": 0,
+                    "dataType": "Geometry"
+                },
+                "height": {
+                    "dataType": "Integer",
+                    "value": 4096
+                },
+                "limitDist": {
+                    "dataType": "Boolean",
+                    "value": false
+                },
+                "polygonsDst": {
+                    "dataType": "PolygonSelection",
+                    "value": [  ]
+                },
+                "uBlockOffset": {
+                    "dataType": "Integer",
+                    "value": 0
+                },
+                "vBlockOffset": {
+                    "dataType": "Integer",
+                    "value": 0
+                },
+                "width": {
+                    "dataType": "Integer",
+                    "value": 4096
+                }
+            },
+            "x": -27.682700415917452,
+            "y": 685.261636533344
+        },
+        "Wrapping": {
+            "isAlwaysVisible": false,
+            "nodeId": 2,
+            "nodeType": "Wrapping",
+            "params": {
+                "autocompute": {
+                    "dataType": "Boolean",
+                    "value": false
+                },
+                "geomFixed": {
+                    "connectedNodeId": 0,
+                    "dataType": "Geometry"
+                },
+                "geomFloating": {
+                    "connectedNodeId": 10,
+                    "dataType": "Geometry"
+                },
+                "globalControlPointsWeightFinal": {
+                    "dataType": "Float",
+                    "value": 20
+                },
+                "globalControlPointsWeightInitial": {
+                    "dataType": "Float",
+                    "value": 10
+                },
+                "globalPoint2PlaneFittingWeight": {
+                    "dataType": "Float",
+                    "value": 1
+                },
+                "globalPoint2PointFittingWeight": {
+                    "dataType": "Float",
+                    "value": 0.10000000149011612
+                },
+                "globalSmoothWeightMax": {
+                    "dataType": "Float",
+                    "value": 1
+                },
+                "globalSmoothWeightMin": {
+                    "dataType": "Float",
+                    "value": 0.029999999329447746
+                },
+                "maxDp": {
+                    "dataType": "Float",
+                    "value": 0.009999999776482582
+                },
+                "maxOptimizationIterations": {
+                    "dataType": "Integer",
+                    "value": 100
+                },
+                "minCosBetweenNormals": {
+                    "dataType": "Float",
+                    "value": 0.6499999761581421
+                },
+                "minDp": {
+                    "dataType": "Float",
+                    "value": 0.0020000000949949026
+                },
+                "nICPIterations": {
+                    "dataType": "Integer",
+                    "value": 5
+                },
+                "nNodesToUse": {
+                    "dataType": "Integer",
+                    "value": 8
+                },
+                "nOptimizationIterations": {
+                    "dataType": "Integer",
+                    "value": 20
+                },
+                "nSubdivisions": {
+                    "dataType": "Integer",
+                    "value": 3
+                },
+                "points": {
+                    "connectedNodeId": 24,
+                    "dataType": "PointCorrespondences",
+                    "value": {
+                        "first": [  ],
+                        "second": [  ]
+                    }
+                },
+                "polygons": {
+                    "connectedNodeId": 21,
+                    "dataType": "PolygonSelection",
+                    "value": [  ]
+                },
+                "samplingMaxMultiplier": {
+                    "dataType": "Float",
+                    "value": 5
+                },
+                "samplingMinMultiplier": {
+                    "dataType": "Float",
+                    "value": 0.20000000298023224
+                }
+            },
+            "x": 111.0108083649256,
+            "y": 593.5681277525007
+        }
+    },
+    "timeline": {
+        "current": 0,
+        "max": 25,
+        "min": 0
+    }
+}
