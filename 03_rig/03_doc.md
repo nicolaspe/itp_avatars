@@ -15,3 +15,5 @@ But as these questions arise,
 
 
 ### Working on myself
+
+The whole process was very straightforward when following the tutorial. The Wrap 3 patch works great (though, I am sure that my bar for what we can do so seamlessly is very low) and Mixamo did a far better job than my 3 hours of manual rigging on Maya. In the end, I had the most fun seeing "myself" (my avatar self) do weird and comical things in Mixamo.
