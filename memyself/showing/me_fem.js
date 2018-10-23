@@ -106,7 +106,7 @@ function createEnvironment(){
 function load_model() {
   tex_loader.load(
     // URL
-    '../models/nico_morphed_normal_texture.png',
+    '../models/nico_morphed_fem_texture.png',
     // callback
     function( texture ){
       me_mat = new THREE.MeshLambertMaterial({
@@ -117,7 +117,7 @@ function load_model() {
       // load 3d model mesh
       obj_loader.load(
         // URL
-        '../models/nico_morphed_normal.obj',
+        '../models/nico_morphed_fem.obj',
         // called when resource is loaded
       	function ( object ) {
           me3d = object;
@@ -125,7 +125,7 @@ function load_model() {
             // For any meshes in the model, add our material.
             if ( node.isMesh ) node.material = me_mat;
           } );
-					me3d.scale.set( 0.55, 0.55, 0.55 );
+					me3d.scale.set( 0.5, 0.5, 0.5 );
           me3d.position.set( 0, -40, 0 );
       		scene.add( me3d );
 					loaded = true;
