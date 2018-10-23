@@ -6,6 +6,8 @@ let controls, obj_loader, tex_loader;
 let me3d, loaded;
 let p_light;
 let timekeep = 0;
+let voice;
+let me_text = "I vaguely remember the first time seeing the image of David Bowie as Ziggy Stardust on television. it was mesmerizing. seeing that someone could dress, act and be like that. Since then and for a long time I looked at androgyny as something to strive for. I was a child, so I didn't know how to go there, nor did it concern me that much. but my genes drove me to another place. an ideal unfulfilled, at least on the physical space.";
 
 window.addEventListener('load', init);
 
@@ -30,6 +32,9 @@ function init(){
   tex_loader = new THREE.TextureLoader();
 	obj_loader = new THREE.OBJLoader();
 	loaded = false;
+
+	voice = new p5.Speech();
+	voice.onEnd = speaker;
 
 	window.addEventListener('resize', onWindowResize, true );
 
@@ -67,6 +72,10 @@ function rotate_me() {
 	if(loaded){
   	me3d.rotation.y = timekeep;
 	}
+}
+
+function speaker(){
+	voice.speak( me_text );
 }
 
 
@@ -129,6 +138,7 @@ function load_model() {
           me3d.position.set( 0, -40, 0 );
       		scene.add( me3d );
 					loaded = true;
+
       	},
       	// called when loading is in progresses
       	function ( xhr ) {
@@ -142,5 +152,6 @@ function load_model() {
 
     }
   );
+	speaker();
 
 }

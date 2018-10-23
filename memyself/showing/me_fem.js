@@ -6,6 +6,8 @@ let controls, obj_loader, tex_loader;
 let me3d, loaded;
 let p_light;
 let timekeep = 0;
+let voice;
+let me_text = "I have always struggled with masculinity. I reject the value and mere idea of its concept. And others have picked this up and made notice of it. They rejected, made fun, and alienated me. All because I have a, quote 'strong feminine side'. bullshit from society. I didn't conform, and I still don't. I refuse. It means expecting society to expect differently from you and consciously unlearn cultural roles and patterns. I wonder what if I was different? if I embrace that other side I feel closer to?";
 
 window.addEventListener('load', init);
 
@@ -30,6 +32,9 @@ function init(){
   tex_loader = new THREE.TextureLoader();
 	obj_loader = new THREE.OBJLoader();
 	loaded = false;
+
+	voice = new p5.Speech();
+	voice.onEnd = speaker;
 
 	window.addEventListener('resize', onWindowResize, true );
 
@@ -69,6 +74,9 @@ function rotate_me() {
 	}
 }
 
+function speaker(){
+	voice.speak( me_text );
+}
 
 
 // ENVIRONMENT
@@ -142,5 +150,6 @@ function load_model() {
 
     }
   );
+	speaker();
 
 }

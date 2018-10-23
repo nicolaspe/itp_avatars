@@ -6,6 +6,8 @@ let controls, obj_loader, tex_loader;
 let me3d, loaded;
 let p_light;
 let timekeep = 0;
+let voice;
+let me_text = "this is my body, or it was at that moment. A 3d scan intended to be a virtual representation of myself. but does it really? does it represent me? it has no beard, where I usually wear one. my tattoo is there and I could add more. but it's hair doesn't move when it dances. it doesn't even vary. this is not me, and only kind of represents me. see this body all you like, you won't find me there. it's missing too many pieces.";
 
 window.addEventListener('load', init);
 
@@ -30,6 +32,9 @@ function init(){
   tex_loader = new THREE.TextureLoader();
 	obj_loader = new THREE.OBJLoader();
 	loaded = false;
+
+	voice = new p5.Speech();
+	voice.onEnd = speaker;
 
 	window.addEventListener('resize', onWindowResize, true );
 
@@ -69,6 +74,9 @@ function rotate_me() {
 	}
 }
 
+function speaker(){
+	voice.speak( me_text );
+}
 
 
 // ENVIRONMENT
@@ -142,5 +150,6 @@ function load_model() {
 
     }
   );
+	speaker();
 
 }
