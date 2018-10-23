@@ -2,8 +2,8 @@
 
 // global threejs variables
 let container, renderer, camera, scene;
-let controls, fbx_loader, tex_loader;
-let me3d, mixers;
+let controls, obj_loader, fbx_loader, tex_loader;
+let me3d;
 let p_light;
 let clock;
 
@@ -30,6 +30,7 @@ function init(){
 	controls.update();
 
   tex_loader = new THREE.TextureLoader();
+	obj_loader = new THREE.OBJLoader();
 	fbx_loader = new THREE.FBXLoader();
   clock = new THREE.Clock();
 
@@ -61,21 +62,9 @@ function animate() {
 function render() {
 	controls.update();
 
-  if(mixers.length > 0){
-    for( let i = 0; i < mixers.length; i++ ){
-      mixers[i].update( clock.getDelta() );
-    }
-  }
-  move_light();
+	let time_delta = clock.getDelta();
 
   renderer.render( scene, camera );
-}
-
-function move_light() {
-  let pos_x =  500. * Math.sin( timekeep );
-  let pos_z = -500. * Math.cos( timekeep );
-
-  p_light.position.set( pos_x, 10, pos_z );
 }
 
 
@@ -106,7 +95,6 @@ function createEnvironment(){
 	scene.add(p_light);
 
   // load fbx model and animaion
-  mixers = [];
   load_model();
 }
 
@@ -125,23 +113,15 @@ function load_model() {
       // load 3d model mesh
       fbx_loader.load(
         // URL
-        '../animated/nico_normal_walk.fbx',
+        '../animated/nico_normal.obj',
         // called when resource is loaded
       	function ( object ) {
           me3d = object;
-
-          // animation
-          me3d.mixer = mew THREE.AnimationMixer( me3d );
-          mixers.push( me3d.mixer );
-          let action = me3d.mixer.clipAction( me3d.animations[1] );
-          action.play();
 
           me3d.traverse( function ( node ){
             // For any meshes in the model, add our material.
             if ( node.isMesh ) {
               node.material = me_mat;
-              node.castShadow = true;
-              node.receiveShadow = true;
             }
           } );
           // position and add!
